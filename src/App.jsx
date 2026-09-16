@@ -6,35 +6,14 @@ import {
   AlertTriangle, 
   X, 
   Menu, 
+  ArrowRight, 
+  ArrowDown, 
+  Mail, 
   TrendingUp, 
   Users, 
   BarChart3, 
-  ShieldCheck, 
-  ArrowRight, 
-  ArrowDown, 
-  FileText, 
-  Settings, 
-  Monitor, 
-  Apple, 
-  Mail 
+  ShieldCheck 
 } from 'lucide-react';
-
-// Android Bot SVG Icon
-function AndroidIcon({ size = 24, className = "" }) {
-  return (
-    <svg 
-      width={size} 
-      height={size} 
-      viewBox="0 0 24 24" 
-      fill="currentColor" 
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path d="M6 18c0 .55.45 1 1 1h1v3c0 .55.45 1 1 1s1-.45 1-1v-3h4v3c0 .55.45 1 1 1s1-.45 1-1v-3h1c.55 0 1-.45 1-1v-9H6v9zm-2-9c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1s1-.45 1-1v-6c0-.55-.45-1-1-1zm16 0c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1s1-.45 1-1v-6c0-.55-.45-1-1-1zM7.5 5.25l-1.3-1.3a.75.75 0 011.06-1.06l1.52 1.52A7.47 7.47 0 0112 4c1.15 0 2.24.26 3.22.71l1.52-1.52a.75.75 0 011.06 1.06l-1.3 1.3C18.15 6.78 19 8.78 19 11H5c0-2.22.85-4.22 2.5-5.75zM9 8.5a.75.75 0 100-1.5.75.75 0 000 1.5zm6 0a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-    </svg>
-  );
-}
 
 // FarmForge Brand Logo Component
 function Logo() {
@@ -139,65 +118,36 @@ export default function App() {
     },
   ];
 
-  const installSteps = [
-    {
-      step: 1,
-      title: 'Tap Install',
-      desc: 'Click the Install FarmForge button above.',
-      icon: Download
-    },
-    {
-      step: 2,
-      title: 'Download APK',
-      desc: 'The app will download to your device.',
-      icon: Download
-    },
-    {
-      step: 3,
-      title: 'Open the File',
-      desc: 'Open the downloaded APK from your notifications or Downloads folder.',
-      icon: FileText
-    },
-    {
-      step: 4,
-      title: 'Allow & Install',
-      desc: 'Allow installation if Android asks, then install FarmForge.',
-      icon: Settings
-    },
-  ];
-
   return (
     <div className="farmforge-page">
-      
+
       {/* ==========================================
           1. HERO SECTION WITH OVERLAY NAVBAR
          ========================================== */}
       <header id="home" className="hero-section">
-        {/* Full-width Hero Canvas Artwork */}
-        <div className="hero-canvas-container">
+        <div className="hero-wrapper">
+          {/* Official High-Resolution Hero Artwork Canvas */}
           <img
-            src="/assets/farmforge-artwork.jpg"
-            className="design-image"
+            src="/assets/farmforge-hero.jpeg"
+            className="hero-artwork-img"
             alt="FarmForge Agricultural Platform - Better Decisions. Brighter Harvests."
           />
 
           {/* Overlaid Navbar sitting directly on top of the hero image */}
-          <nav className="overlay-nav" aria-label="Main Navigation">
-            <div className="overlay-nav-inner">
-              <Logo />
-
-              <div className="overlay-nav-links desktop-only">
-                <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="overlay-nav-item">Home</a>
-                <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="overlay-nav-item">About</a>
-                <a href="#features" onClick={(e) => scrollToSection(e, 'features')} className="overlay-nav-item">Features</a>
-                <a href="#support" onClick={(e) => scrollToSection(e, 'support')} className="overlay-nav-item">Support</a>
+          <nav className="hero-navbar" aria-label="Main Navigation">
+            <div className="navbar-container">
+              <div className="nav-links desktop-only">
+                <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="nav-item">Home</a>
+                <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="nav-item">About</a>
+                <a href="#features" onClick={(e) => scrollToSection(e, 'features')} className="nav-item">Features</a>
+                <a href="#support" onClick={(e) => scrollToSection(e, 'support')} className="nav-item">Support</a>
               </div>
 
-              <div className="overlay-nav-cta desktop-only">
+              <div className="nav-cta desktop-only">
                 <a
                   href="#install"
-                  onClick={(e) => scrollToSection(e, 'install')}
-                  className="overlay-nav-install-btn"
+                  onClick={handleInstallClick}
+                  className="btn-nav-install"
                   aria-label="Install App"
                 >
                   <span>Install App</span>
@@ -205,12 +155,12 @@ export default function App() {
                 </a>
               </div>
 
-              {/* Mobile Hamburger Menu Button */}
+              {/* Mobile Hamburger Toggle */}
               <button
                 type="button"
                 className="mobile-menu-toggle mobile-only"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Toggle Navigation Menu"
+                aria-label="Open navigation menu"
                 aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -218,20 +168,24 @@ export default function App() {
             </div>
           </nav>
 
-          {/* Hero CTA Button Click Overlay */}
+          {/* Overlaid Interactive "Install FarmForge" CTA Button */}
           <a
             href="#install"
             onClick={handleInstallClick}
-            className="overlay-hero-install-btn"
+            className="hero-install-cta-btn"
             aria-label="Install FarmForge Android App"
             title="Install FarmForge"
           >
-            <span className="sr-only">Install FarmForge</span>
+            <img
+              src="/assets/farmforge-install-button.png"
+              alt="Install FarmForge"
+              className="hero-install-btn-img"
+            />
           </a>
         </div>
       </header>
 
-      {/* Mobile Drawer Navigation Menu */}
+      {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
         <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}>
           <div className="mobile-menu-panel" onClick={(e) => e.stopPropagation()}>
@@ -264,7 +218,6 @@ export default function App() {
                   handleInstallClick(e);
                 }}
               >
-                <AndroidIcon size={20} />
                 <span>Install FarmForge App</span>
                 <Download size={18} />
               </button>
@@ -278,7 +231,17 @@ export default function App() {
          ========================================== */}
       <section id="features" className="features-strip-section" aria-label="Key Features">
         <div className="section-container">
-          <div className="features-grid">
+          {/* Desktop Feature Strip Asset */}
+          <div className="feature-strip-wrapper desktop-only">
+            <img
+              src="/assets/farmforge-feature-strip.png"
+              alt="Real Market Insights, Trusted Buyers, Better Decisions, Higher Returns"
+              className="feature-strip-img"
+            />
+          </div>
+
+          {/* Responsive Feature Cards for Tablet & Mobile */}
+          <div className="features-grid mobile-only">
             {featuresList.map((item) => {
               const IconComp = item.icon;
               return (
@@ -298,112 +261,76 @@ export default function App() {
       </section>
 
       {/* ==========================================
-          3. HOW TO INSTALL FARMFORGE (#install)
+          3. HOW TO INSTALL + ABOUT + SUPPORT
+             Single unified section with banner as CSS background
          ========================================== */}
-      <section id="install" className="installation-section" aria-label="How to Install FarmForge">
+      <section id="install" className="install-help-bg-section" aria-label="Install FarmForge, About and Support">
         <div className="section-container">
-          <div className="install-section-header">
-            <h2 className="install-main-title">How to Install FarmForge</h2>
-            <p className="install-subtitle">Get started in just a few simple steps.</p>
-          </div>
 
-          {/* 4 Step Cards with Hover Lift Animations */}
+          {/* 4 Interactive Step Cards with Smooth Hover Transitions */}
           <div className="install-steps-grid">
-            {installSteps.map((step, idx) => {
-              const StepIcon = step.icon;
-              return (
-                <React.Fragment key={step.step}>
-                  <div className="install-card" tabIndex={0} role="article">
-                    <div className="step-badge">{step.step}</div>
-                    <div className="install-icon-wrapper">
-                      <StepIcon size={28} className="install-card-icon" />
-                    </div>
-                    <h3 className="install-card-title">{step.title}</h3>
-                    <p className="install-card-desc">{step.desc}</p>
-                  </div>
-
-                  {/* Desktop Step Arrow */}
-                  {idx < installSteps.length - 1 && (
-                    <div className="step-arrow-wrapper desktop-only" aria-hidden="true">
-                      <ArrowRight size={22} className="step-arrow-icon" />
-                    </div>
-                  )}
-
-                  {/* Mobile Vertical Indicator */}
-                  {idx < installSteps.length - 1 && (
-                    <div className="step-arrow-wrapper mobile-only" aria-hidden="true">
-                      <ArrowDown size={22} className="step-arrow-icon" />
-                    </div>
-                  )}
-                </React.Fragment>
-              );
-            })}
-          </div>
-
-          {/* ==========================================
-              4. DEVICE INFORMATION PANELS
-             ========================================== */}
-          <div className="device-panels-grid">
-            {/* Left Panel: Android */}
-            <div className="device-panel android-panel" tabIndex={0}>
-              <div className="device-panel-icon android-icon-bg">
-                <AndroidIcon size={36} />
+            <div className="step-card-wrapper">
+              <div className="step-card" tabIndex={0} role="article" aria-label="Step 1: Tap Install">
+                <img src="/assets/farmforge-install-step-1.png" alt="Step 1: Tap Install - Click the Install FarmForge button above." className="step-img" />
               </div>
-              <div className="device-panel-text">
-                <h3 className="device-panel-title">Built for Android</h3>
-                <p className="device-panel-main">
-                  FarmForge is currently available only for Android devices.
-                </p>
-                <p className="device-panel-sub">
-                  Open this page on your Android phone and tap the Install button to download the app.
-                </p>
+              <div className="step-arrow-wrapper desktop-only" aria-hidden="true">
+                <ArrowRight size={26} className="step-arrow-icon" />
+              </div>
+              <div className="step-arrow-wrapper mobile-only" aria-hidden="true">
+                <ArrowDown size={24} className="step-arrow-icon" />
               </div>
             </div>
 
-            {/* Right Panel: iPhone / Computer */}
-            <div className="device-panel non-android-panel" tabIndex={0}>
-              <div className="device-panel-icon-group">
-                <div className="device-panel-icon other-icon-bg">
-                  <Apple size={28} />
-                </div>
-                <div className="device-panel-icon other-icon-bg">
-                  <Monitor size={28} />
-                </div>
+            <div className="step-card-wrapper">
+              <div className="step-card" tabIndex={0} role="article" aria-label="Step 2: Download APK">
+                <img src="/assets/farmforge-install-step-2.png" alt="Step 2: Download APK - The app will download to your device." className="step-img" />
               </div>
-              <div className="device-panel-text">
-                <h3 className="device-panel-title">Using an iPhone or a Computer?</h3>
-                <p className="device-panel-main">
-                  FarmForge is currently available for Android only.
-                </p>
-                <p className="device-panel-sub">
-                  Please open this page on an Android mobile device to install the app.
-                </p>
+              <div className="step-arrow-wrapper desktop-only" aria-hidden="true">
+                <ArrowRight size={26} className="step-arrow-icon" />
+              </div>
+              <div className="step-arrow-wrapper mobile-only" aria-hidden="true">
+                <ArrowDown size={24} className="step-arrow-icon" />
+              </div>
+            </div>
+
+            <div className="step-card-wrapper">
+              <div className="step-card" tabIndex={0} role="article" aria-label="Step 3: Open the File">
+                <img src="/assets/farmforge-install-step-3.png" alt="Step 3: Open the File - Open the downloaded APK from your notifications or Downloads folder." className="step-img" />
+              </div>
+              <div className="step-arrow-wrapper desktop-only" aria-hidden="true">
+                <ArrowRight size={26} className="step-arrow-icon" />
+              </div>
+              <div className="step-arrow-wrapper mobile-only" aria-hidden="true">
+                <ArrowDown size={24} className="step-arrow-icon" />
+              </div>
+            </div>
+
+            <div className="step-card-wrapper">
+              <div className="step-card" tabIndex={0} role="article" aria-label="Step 4: Allow and Install">
+                <img src="/assets/farmforge-install-step-4.png" alt="Step 4: Allow & Install - Allow installation if Android asks, then install FarmForge." className="step-img" />
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ==========================================
-          5. ABOUT SECTION (#about)
-         ========================================== */}
-      <section id="about" className="about-section">
-        <div className="section-container">
-          <div className="about-card">
+          {/* Device Information Panels */}
+          <div className="device-info-wrapper">
+            <img
+              src="/assets/farmforge-iphone-computer-info.png"
+              alt="Built for Android & Using an iPhone or a Computer?"
+              className="device-info-img"
+            />
+          </div>
+
+          {/* About Sub-section */}
+          <div id="about" className="about-card">
             <h2 className="about-title">Empowering Agricultural Communities</h2>
             <p className="about-desc">
               FarmForge connects agricultural producers with verified buyers, delivering transparent real-time market prices, climate resilience data, and collective bargaining tools for sustainable farming tomorrows.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* ==========================================
-          6. SUPPORT SECTION (#support)
-         ========================================== */}
-      <section id="support" className="support-section">
-        <div className="section-container">
-          <div className="support-card">
+          {/* Support Sub-section */}
+          <div id="support" className="support-card">
             <div className="support-content">
               <h2 className="support-title">Need Help or Have Questions?</h2>
               <p className="support-desc">
@@ -411,8 +338,8 @@ export default function App() {
               </p>
             </div>
             <div className="support-cta">
-              <a 
-                href="mailto:support@farmforge.com" 
+              <a
+                href="mailto:support@farmforge.com"
                 onClick={(e) => showInfoToast(e, 'Opening email client (support@farmforge.com)...')}
                 className="btn-support-contact"
               >
@@ -421,16 +348,17 @@ export default function App() {
               </a>
             </div>
           </div>
+
         </div>
       </section>
 
       {/* ==========================================
-          7. FOOTER SECTION
+          7. FULL-WIDTH FOOTER SECTION
          ========================================== */}
       <footer className="site-footer">
         <div className="section-container">
           <div className="footer-top-row">
-            {/* Left: Brand Branding */}
+            {/* Left: Brand Logo */}
             <div className="footer-brand">
               <Logo />
             </div>

@@ -1,6 +1,6 @@
 /* ==========================================================================
    FARMFORGE LANDING PAGE STYLESHEET
-   100% Full-Width Responsive Architecture | Interactive Step Cards | Overlay Navbar
+   100% Full-Width Responsive Architecture | Official Assets | Overlay Navbar
    ========================================================================== */
 
 :root {
@@ -45,7 +45,7 @@ html, body, #root {
   border-width: 0;
 }
 
-/* Responsive Utilities */
+/* Responsive Display Utilities */
 .desktop-only {
   display: flex !important;
 }
@@ -64,7 +64,7 @@ html, body, #root {
 }
 
 /* ==========================================================================
-   1. FULL-WIDTH PAGE STRUCTURE & CONTAINERS
+   1. FULL-WIDTH PAGE STRUCTURE
    ========================================================================== */
 
 .farmforge-page {
@@ -81,46 +81,43 @@ html, body, #root {
 }
 
 /* ==========================================================================
-   2. FULL-WIDTH HERO SECTION & OVERLAY NAVBAR
+   2. HERO SECTION & OVERLAY NAVBAR
    ========================================================================== */
 
 .hero-section {
   position: relative;
   width: 100%;
-  max-width: none;
   background-color: #0B3C26;
   overflow: hidden;
 }
 
-.hero-canvas-container {
+.hero-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1448px;
   margin: 0 auto;
 }
 
-.design-image {
+.hero-artwork-img {
   display: block;
   width: 100%;
   height: auto;
-  max-width: 100%;
   pointer-events: none;
   user-select: none;
-  object-fit: contain;
 }
 
-/* Overlay Navbar sitting directly on top of the hero image */
-.overlay-nav {
+/* Overlay Navbar positioned directly on top of the hero image */
+.hero-navbar {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 50;
-  padding: 0.8rem 0;
+  z-index: 100;
+  padding: 1.25rem 0;
 }
 
-.overlay-nav-inner {
-  width: min(92%, 1280px);
+.navbar-container {
+  width: min(92%, 1360px);
   margin-inline: auto;
   display: flex;
   align-items: center;
@@ -159,26 +156,26 @@ html, body, #root {
 }
 
 .brand-title {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: #0B3C26;
   line-height: 1.1;
 }
 
 .brand-tagline {
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 600;
   color: #15803D;
   line-height: 1;
 }
 
-.overlay-nav-links {
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
-.overlay-nav-item {
+.nav-item {
   font-size: 0.95rem;
   font-weight: 700;
   color: #0B3C26;
@@ -188,14 +185,14 @@ html, body, #root {
   transition: all 0.2s ease;
 }
 
-.overlay-nav-item:hover,
-.overlay-nav-item:focus-visible {
+.nav-item:hover,
+.nav-item:focus-visible {
   background-color: rgba(21, 128, 61, 0.12);
   color: #15803D;
   outline: none;
 }
 
-.overlay-nav-install-btn {
+.btn-nav-install {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -203,7 +200,7 @@ html, body, #root {
   color: #FFFFFF;
   font-size: 0.9rem;
   font-weight: 700;
-  padding: 0.5rem 1.15rem;
+  padding: 0.55rem 1.25rem;
   border-radius: 9999px;
   border: none;
   cursor: pointer;
@@ -212,48 +209,50 @@ html, body, #root {
   text-decoration: none;
 }
 
-.overlay-nav-install-btn:hover,
-.overlay-nav-install-btn:focus-visible {
+.btn-nav-install:hover,
+.btn-nav-install:focus-visible {
   background-color: var(--color-primary-green);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(21, 128, 61, 0.4);
   outline: none;
 }
 
-.overlay-hero-install-btn {
+/* Interactive Hero CTA Button Overlay */
+.hero-install-cta-btn {
   position: absolute;
-  top: 34.0%;
-  left: 8.5%;
-  width: 35.2%;
-  height: 4.8%;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  border-radius: 9999px;
+  top: 61.2%;
+  left: 7.2%;
+  width: 33.5%;
   z-index: 50;
-  transition: all 0.2s ease;
-  text-decoration: none;
+  cursor: pointer;
   display: block;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-.overlay-hero-install-btn:hover {
-  background-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 0 18px rgba(74, 222, 128, 0.5);
-  transform: scale(1.005);
+.hero-install-cta-btn:hover {
+  transform: translateY(-3px) scale(1.015);
+  filter: drop-shadow(0 10px 20px rgba(21, 128, 61, 0.45));
 }
 
-/* Mobile Drawer Overlay */
+.hero-install-btn-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Mobile Hamburger Toggle */
 .mobile-menu-toggle {
   background: transparent;
   border: none;
   color: #0B3C26;
   cursor: pointer;
-  padding: 0.3rem;
+  padding: 0.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Mobile Drawer */
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
@@ -269,7 +268,7 @@ html, body, #root {
   width: 80%;
   max-width: 320px;
   height: 100%;
-  padding: 1.5rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
@@ -298,7 +297,7 @@ html, body, #root {
 }
 
 .mobile-nav-list a {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #0F172A;
   text-decoration: none;
@@ -320,21 +319,36 @@ html, body, #root {
 }
 
 /* ==========================================================================
-   3. FULL-WIDTH FEATURE STRIP SECTION (#features)
+   3. FEATURE STRIP SECTION (#features)
    ========================================================================== */
 
 .features-strip-section {
   width: 100%;
   background-color: var(--color-soft-green-bg);
-  padding: 2rem 0;
+  padding: 2.5rem 0;
   border-top: 1px solid rgba(21, 128, 61, 0.1);
   border-bottom: 1px solid rgba(21, 128, 61, 0.1);
 }
 
+.feature-strip-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.feature-strip-img {
+  display: block;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .feature-card {
@@ -346,16 +360,7 @@ html, body, #root {
   align-items: flex-start;
   gap: 0.85rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  transition: all 0.25s ease;
   cursor: pointer;
-}
-
-.feature-card:hover,
-.feature-card:focus-visible {
-  border-color: var(--color-primary-green);
-  box-shadow: 0 8px 16px rgba(21, 128, 61, 0.1);
-  transform: translateY(-2px);
-  outline: none;
 }
 
 .feature-icon-badge {
@@ -384,51 +389,44 @@ html, body, #root {
 }
 
 /* ==========================================================================
-   4. FULL-WIDTH HOW TO INSTALL FARMFORGE (#install) & HOVER ANIMATION
+   4. HOW TO INSTALL + ABOUT + SUPPORT (Unified Background Section)
    ========================================================================== */
 
-.installation-section {
+/* Single full-width section using the install guide banner as background */
+.install-help-bg-section {
   width: 100%;
-  background-color: #FFFFFF;
-  padding: 4rem 0;
-}
-
-.install-section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.install-main-title {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--color-primary-dark);
-  margin-bottom: 0.5rem;
-}
-
-.install-subtitle {
-  font-size: 1.05rem;
-  color: var(--color-text-muted);
+  background-image: url('/assets/farmforge-install-guide-banner.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding: 4rem 0 3rem 0;
 }
 
 .install-steps-grid {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 0.75rem;
-  margin-bottom: 3.5rem;
+  max-width: 1160px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.step-card-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
 }
 
 /* Step Card Base & Hover Animation */
-.install-card {
-  flex: 1;
-  background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 16px;
-  padding: 2rem 1.25rem;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.step-card {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
   cursor: pointer;
+  background-color: #FFFFFF;
   /* Smooth ease-out lift transition (250ms) */
   transition: transform 250ms ease,
               box-shadow 250ms ease,
@@ -437,208 +435,73 @@ html, body, #root {
   will-change: transform, box-shadow;
 }
 
-/* Noticeable Hover Lift Interaction */
-.install-card:hover {
+/* Step Card Hover Interaction */
+.step-card:hover {
   transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(21, 128, 61, 0.18);
+  border-color: #15803D;
   background-color: var(--color-soft-green-bg);
-  border-color: var(--color-primary-green);
-  box-shadow: 0 16px 32px rgba(21, 128, 61, 0.15);
 }
 
-.install-card:hover .install-card-title {
-  color: var(--color-primary-green);
-}
-
-.install-card:hover .step-badge {
-  background-color: var(--color-primary-green);
-  color: #FFFFFF;
-  transform: scale(1.1);
-}
-
-.install-card:hover .install-card-icon {
-  color: var(--color-primary-green);
-  transform: scale(1.1);
-}
-
-/* Keyboard Focus-Visible State */
-.install-card:focus-visible {
+.step-card:focus-visible {
   outline: 3px solid var(--color-accent-emerald);
   outline-offset: 4px;
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 14px 28px rgba(21, 128, 61, 0.2);
 }
 
-.step-badge {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: var(--color-primary-dark);
-  color: #FFFFFF;
-  font-size: 0.9rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem auto;
-  transition: all 250ms ease;
-}
-
-.install-icon-wrapper {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background-color: #EBF4EE;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.25rem auto;
-}
-
-.install-card-icon {
-  color: var(--color-primary-dark);
-  transition: all 250ms ease;
-}
-
-.install-card-title {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--color-primary-dark);
-  margin-bottom: 0.5rem;
-  transition: color 250ms ease;
-}
-
-.install-card-desc {
-  font-size: 0.88rem;
-  color: var(--color-text-muted);
-  line-height: 1.45;
+.step-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .step-arrow-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #94A3B8;
+  color: var(--color-primary-green);
   flex-shrink: 0;
 }
 
-/* Respect Prefers-Reduced-Motion */
-@media (prefers-reduced-motion: reduce) {
-  .install-card,
-  .install-card:hover,
-  .install-card:focus-visible,
-  .overlay-nav-install-btn,
-  .overlay-nav-install-btn:hover {
-    transition: none !important;
-    transform: none !important;
-  }
-}
-
-/* ==========================================================================
-   5. DEVICE INFORMATION PANELS
-   ========================================================================== */
-
-.device-panels-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.75rem;
-}
-
-.device-panel {
-  border-radius: 18px;
-  padding: 1.75rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1.25rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: transform 0.25s ease;
-  cursor: pointer;
-}
-
-.device-panel:hover,
-.device-panel:focus-visible {
-  transform: translateY(-2px);
-  outline: none;
-}
-
-.android-panel {
-  background-color: #EBF4EE;
-  border: 1px solid rgba(21, 128, 61, 0.2);
-}
-
-.non-android-panel {
-  background-color: #F1F5F9;
-  border: 1px solid #E2E8F0;
-}
-
-.device-panel-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.android-icon-bg {
-  background-color: var(--color-primary-dark);
-  color: #FFFFFF;
-}
-
-.device-panel-icon-group {
-  display: flex;
-  gap: 0.4rem;
-}
-
-.other-icon-bg {
-  width: 44px;
-  height: 44px;
-  background-color: #334155;
-  color: #FFFFFF;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.device-panel-title {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--color-primary-dark);
-  margin-bottom: 0.35rem;
-}
-
-.device-panel-main {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-text-dark);
-  margin-bottom: 0.35rem;
-}
-
-.device-panel-sub {
-  font-size: 0.88rem;
-  color: var(--color-text-muted);
-  line-height: 1.4;
-}
-
-/* ==========================================================================
-   6. ABOUT & SUPPORT SECTIONS
-   ========================================================================== */
-
-.about-section,
-.support-section {
+/* Device Info Panel */
+.device-info-wrapper {
   width: 100%;
-  padding: 3rem 0;
-  background-color: var(--color-soft-green-bg);
+  margin-bottom: 3rem;
 }
 
-.about-card,
-.support-card {
-  background-color: #FFFFFF;
+.device-info-img {
+  display: block;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* About & Support cards inside the unified section */
+.about-card {
+  max-width: 1160px;
+  margin: 0 auto 2rem auto;
+  background-color: rgba(255, 255, 255, 0.92);
   border-radius: 18px;
   padding: 2.25rem;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.support-card {
+  max-width: 1160px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  padding: 2.25rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .about-title,
@@ -656,12 +519,23 @@ html, body, #root {
   line-height: 1.6;
 }
 
-.support-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+/* Respect Prefers-Reduced-Motion */
+@media (prefers-reduced-motion: reduce) {
+  .step-card,
+  .step-card:hover,
+  .step-card:focus-visible,
+  .btn-nav-install,
+  .btn-nav-install:hover,
+  .hero-install-cta-btn,
+  .hero-install-cta-btn:hover {
+    transition: none !important;
+    transform: none !important;
+  }
 }
+
+/* ==========================================================================
+   5. SUPPORT CONTACT BUTTON
+   ========================================================================== */
 
 .btn-support-contact {
   display: inline-flex;
@@ -682,8 +556,9 @@ html, body, #root {
   background-color: var(--color-primary-green);
 }
 
+
 /* ==========================================================================
-   7. FULL-WIDTH FOOTER SECTION
+   6. FULL-WIDTH FOOTER SECTION
    ========================================================================== */
 
 .site-footer {
@@ -694,7 +569,8 @@ html, body, #root {
 }
 
 .footer-top-row {
-  margin-bottom: 2.5rem;
+  max-width: 1160px;
+  margin: 0 auto 2.5rem auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -755,6 +631,8 @@ html, body, #root {
 }
 
 .footer-bottom-row {
+  max-width: 1160px;
+  margin: 0 auto;
   padding-top: 1.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
@@ -765,7 +643,7 @@ html, body, #root {
 }
 
 /* ==========================================================================
-   8. MODAL & TOAST NOTIFICATIONS
+   7. MODAL & TOAST NOTIFICATIONS
    ========================================================================== */
 
 .modal-overlay {
@@ -925,18 +803,18 @@ html, body, #root {
 }
 
 /* ==========================================================================
-   9. RESPONSIVE BREAKPOINTS (1440px, 1200px, 1024px, 768px, 480px, 375px)
+   8. RESPONSIVE BREAKPOINTS (1024px, 768px, 480px)
    ========================================================================== */
 
 @media (max-width: 1024px) {
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
   .install-steps-grid {
     flex-direction: column;
+  }
+
+  .step-card-wrapper {
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
   }
 
   .step-arrow-wrapper.desktop-only {
@@ -945,16 +823,18 @@ html, body, #root {
   
   .step-arrow-wrapper.mobile-only {
     display: flex !important;
-    margin: 0.5rem 0;
+    margin: 0.75rem 0;
   }
+}
 
-  .device-panels-grid {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 768px) {
   .support-card {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .install-help-bg-section {
+    background-attachment: scroll;
   }
 
   .footer-top-row {
@@ -966,19 +846,5 @@ html, body, #root {
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .section-container {
-    width: 92%;
-  }
-
-  .install-main-title {
-    font-size: 1.75rem;
   }
 }
