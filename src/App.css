@@ -1,0 +1,984 @@
+/* ==========================================================================
+   FARMFORGE LANDING PAGE STYLESHEET
+   100% Full-Width Responsive Architecture | Interactive Step Cards | Overlay Navbar
+   ========================================================================== */
+
+:root {
+  --color-primary-dark: #0B3C26;
+  --color-primary-green: #15803D;
+  --color-accent-emerald: #22C55E;
+  --color-soft-green-bg: #F4F9F5;
+  --color-white: #FFFFFF;
+  --color-text-dark: #0F172A;
+  --color-text-muted: #64748B;
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: #0B3C26;
+  font-family: var(--font-main);
+  color: var(--color-text-dark);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive Utilities */
+.desktop-only {
+  display: flex !important;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: flex !important;
+  }
+}
+
+/* ==========================================================================
+   1. FULL-WIDTH PAGE STRUCTURE & CONTAINERS
+   ========================================================================== */
+
+.farmforge-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-container {
+  width: min(92%, 1280px);
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+   2. FULL-WIDTH HERO SECTION & OVERLAY NAVBAR
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  background-color: #0B3C26;
+  overflow: hidden;
+}
+
+.hero-canvas-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.design-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  pointer-events: none;
+  user-select: none;
+  object-fit: contain;
+}
+
+/* Overlay Navbar sitting directly on top of the hero image */
+.overlay-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 0.8rem 0;
+}
+
+.overlay-nav-inner {
+  width: min(92%, 1280px);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.2rem 0.4rem;
+  transition: background-color 0.2s ease;
+}
+
+.brand-logo:hover {
+  background-color: rgba(21, 128, 61, 0.1);
+}
+
+.logo-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0B3C26;
+  line-height: 1.1;
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #15803D;
+  line-height: 1;
+}
+
+.overlay-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.overlay-nav-item {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0B3C26;
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.overlay-nav-item:hover,
+.overlay-nav-item:focus-visible {
+  background-color: rgba(21, 128, 61, 0.12);
+  color: #15803D;
+  outline: none;
+}
+
+.overlay-nav-install-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.5rem 1.15rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(11, 60, 38, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.overlay-nav-install-btn:hover,
+.overlay-nav-install-btn:focus-visible {
+  background-color: var(--color-primary-green);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(21, 128, 61, 0.4);
+  outline: none;
+}
+
+.overlay-hero-install-btn {
+  position: absolute;
+  top: 34.0%;
+  left: 8.5%;
+  width: 35.2%;
+  height: 4.8%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  z-index: 50;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.overlay-hero-install-btn:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 18px rgba(74, 222, 128, 0.5);
+  transform: scale(1.005);
+}
+
+/* Mobile Drawer Overlay */
+.mobile-menu-toggle {
+  background: transparent;
+  border: none;
+  color: #0B3C26;
+  cursor: pointer;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mobile-menu-panel {
+  background-color: #FFFFFF;
+  width: 80%;
+  max-width: 320px;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.btn-close-menu {
+  background: transparent;
+  border: none;
+  color: #64748B;
+  cursor: pointer;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.mobile-nav-list a {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0F172A;
+  text-decoration: none;
+}
+
+.btn-install-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #0B3C26;
+  color: #FFFFFF;
+  padding: 0.85rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* ==========================================================================
+   3. FULL-WIDTH FEATURE STRIP SECTION (#features)
+   ========================================================================== */
+
+.features-strip-section {
+  width: 100%;
+  background-color: var(--color-soft-green-bg);
+  padding: 2rem 0;
+  border-top: 1px solid rgba(21, 128, 61, 0.1);
+  border-bottom: 1px solid rgba(21, 128, 61, 0.1);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.feature-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover,
+.feature-card:focus-visible {
+  border-color: var(--color-primary-green);
+  box-shadow: 0 8px 16px rgba(21, 128, 61, 0.1);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.feature-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #EBF4EE;
+  color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-card-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.25rem;
+}
+
+.feature-card-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   4. FULL-WIDTH HOW TO INSTALL FARMFORGE (#install) & HOVER ANIMATION
+   ========================================================================== */
+
+.installation-section {
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 4rem 0;
+}
+
+.install-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.install-main-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.install-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+}
+
+.install-steps-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Step Card Base & Hover Animation */
+.install-card {
+  flex: 1;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  /* Smooth ease-out lift transition (250ms) */
+  transition: transform 250ms ease,
+              box-shadow 250ms ease,
+              border-color 250ms ease,
+              background-color 250ms ease;
+  will-change: transform, box-shadow;
+}
+
+/* Noticeable Hover Lift Interaction */
+.install-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background-color: var(--color-soft-green-bg);
+  border-color: var(--color-primary-green);
+  box-shadow: 0 16px 32px rgba(21, 128, 61, 0.15);
+}
+
+.install-card:hover .install-card-title {
+  color: var(--color-primary-green);
+}
+
+.install-card:hover .step-badge {
+  background-color: var(--color-primary-green);
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.install-card:hover .install-card-icon {
+  color: var(--color-primary-green);
+  transform: scale(1.1);
+}
+
+/* Keyboard Focus-Visible State */
+.install-card:focus-visible {
+  outline: 3px solid var(--color-accent-emerald);
+  outline-offset: 4px;
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(21, 128, 61, 0.2);
+}
+
+.step-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  transition: all 250ms ease;
+}
+
+.install-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #EBF4EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem auto;
+}
+
+.install-card-icon {
+  color: var(--color-primary-dark);
+  transition: all 250ms ease;
+}
+
+.install-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.5rem;
+  transition: color 250ms ease;
+}
+
+.install-card-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.step-arrow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+/* Respect Prefers-Reduced-Motion */
+@media (prefers-reduced-motion: reduce) {
+  .install-card,
+  .install-card:hover,
+  .install-card:focus-visible,
+  .overlay-nav-install-btn,
+  .overlay-nav-install-btn:hover {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   5. DEVICE INFORMATION PANELS
+   ========================================================================== */
+
+.device-panels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.device-panel {
+  border-radius: 18px;
+  padding: 1.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
+
+.device-panel:hover,
+.device-panel:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.android-panel {
+  background-color: #EBF4EE;
+  border: 1px solid rgba(21, 128, 61, 0.2);
+}
+
+.non-android-panel {
+  background-color: #F1F5F9;
+  border: 1px solid #E2E8F0;
+}
+
+.device-panel-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.android-icon-bg {
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+}
+
+.device-panel-icon-group {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.other-icon-bg {
+  width: 44px;
+  height: 44px;
+  background-color: #334155;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device-panel-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.35rem;
+}
+
+.device-panel-main {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 0.35rem;
+}
+
+.device-panel-sub {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   6. ABOUT & SUPPORT SECTIONS
+   ========================================================================== */
+
+.about-section,
+.support-section {
+  width: 100%;
+  padding: 3rem 0;
+  background-color: var(--color-soft-green-bg);
+}
+
+.about-card,
+.support-card {
+  background-color: #FFFFFF;
+  border-radius: 18px;
+  padding: 2.25rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  border: 1px solid #E2E8F0;
+}
+
+.about-title,
+.support-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.about-desc,
+.support-desc {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.support-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.btn-support-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  padding: 0.85rem 1.6rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-support-contact:hover {
+  background-color: var(--color-primary-green);
+}
+
+/* ==========================================================================
+   7. FULL-WIDTH FOOTER SECTION
+   ========================================================================== */
+
+.site-footer {
+  width: 100%;
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  padding: 3rem 0 1.75rem 0;
+}
+
+.footer-top-row {
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand .brand-title {
+  color: #FFFFFF;
+}
+
+.footer-brand .brand-tagline {
+  color: var(--color-accent-emerald);
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-link {
+  color: #E2E8F0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-accent-emerald);
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: var(--color-primary-green);
+  transform: translateY(-2px);
+}
+
+.footer-bottom-row {
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: #94A3B8;
+}
+
+/* ==========================================================================
+   8. MODAL & TOAST NOTIFICATIONS
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.68);
+  backdrop-filter: blur(5px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  max-width: 440px;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #64748B;
+  padding: 0.3rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background-color: #F1F5F9;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.modal-icon-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #EBF4EE;
+  color: #0B3C26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0B3C26;
+}
+
+.modal-body {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.modal-main-msg {
+  font-size: 1rem;
+  color: #0F172A;
+  margin-bottom: 0.5rem;
+}
+
+.modal-sub-msg {
+  font-size: 0.88rem;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn-modal-primary {
+  background-color: #0B3C26;
+  color: #FFFFFF;
+  padding: 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-modal-primary:hover {
+  background-color: #15803D;
+}
+
+.btn-modal-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1px solid #E2E8F0;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-modal-secondary:hover {
+  background-color: #F1F5F9;
+}
+
+.toast-notification {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #0F172A;
+  color: #FFFFFF;
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 400;
+  font-size: 0.88rem;
+  max-width: 400px;
+}
+
+.toast-icon {
+  color: #FACC15;
+  flex-shrink: 0;
+}
+
+.toast-close {
+  color: #94A3B8;
+  margin-left: auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE BREAKPOINTS (1440px, 1200px, 1024px, 768px, 480px, 375px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .install-steps-grid {
+    flex-direction: column;
+  }
+
+  .step-arrow-wrapper.desktop-only {
+    display: none !important;
+  }
+  
+  .step-arrow-wrapper.mobile-only {
+    display: flex !important;
+    margin: 0.5rem 0;
+  }
+
+  .device-panels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .support-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-container {
+    width: 92%;
+  }
+
+  .install-main-title {
+    font-size: 1.75rem;
+  }
+}
