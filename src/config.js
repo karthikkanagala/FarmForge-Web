@@ -5,7 +5,7 @@ export const APP_CONFIG = {
   version: "1.0.0",
   platform: "Android",
   // Replace this URL with your hosted APK download link
-  apkUrl: "https://farmforge.app/downloads/farmforge-v1.0.0.apk",
+  apkUrl: "https://expo.dev/artifacts/eas/3P8gCxljA3I3S4Gt8SzpEGyP2Clm2wFGT6ma_O4e1_w.apk",
 };
 
 export const APP_DOWNLOAD_URL = APP_CONFIG.apkUrl;
